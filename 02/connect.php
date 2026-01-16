@@ -1,6 +1,6 @@
 <?php
 declare(strict_types= 1);
-
+//myBranch1
 //vars to hold database connection info
 $host = 'localhost';
 $db = "week_two";
