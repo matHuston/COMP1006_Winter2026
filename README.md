@@ -1,4 +1,4 @@
-# COMP1006_Winter2026
+# COMP1006_Winter2026 cloned by matHuston
 Code repository for COMP1006 - Intro to Web Programming with PHP - Winter 2026 
 
 Welcome to the **COMP1006 GitHub Repository**!
