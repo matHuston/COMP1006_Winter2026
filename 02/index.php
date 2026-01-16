@@ -8,7 +8,7 @@ declare(strict_types = 1);
 //require and include - used to include external files
 //require will produce a fatal error if the file is not found, stopping script execution
 //include will only produce a warning, allowing the script to continue
-require_once 'connect.php'; //include the database connection file
+require_once 'connect.php'; //require the database connection file
 
 //vars, data types, concatenation, conditional statements --------------------------------------
 //vars initialized with $
