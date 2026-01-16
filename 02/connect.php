@@ -1,19 +1,25 @@
-<?php 
+<?php
+declare(strict_types= 1);
 
-declare(strict_types=1);
+//vars to hold database connection info
+$host = 'localhost';
+$db = "week_two";
+$user = "root";
+$password = "";
 
-$host = "localhost"; 
-$db = "test_connection"; 
-$user = "root"; 
-$pass = ""; 
+//data source name - set address of the database server, name, and charset
+$dsn = "mysql:host=$host; dbname=$db; charset=utf8mb4";
 
-$dsn = "mysql:host=$host;dbname=$db";
-
-try {
- $pdo = new PDO($dsn, $user, $pass); 
- $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
- echo "Connected to the database! Yay!"; 
+//try and catch block to handle connection errors
+try { //try to connect
+    $pdo = new PDO($dsn, $user, $password);
+    //throw exceptions on error
+    $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo success message
+    echo "<p>Hack the planet! {$db} </p>";
 }
-catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+
+//if there is an error connecting, catch and display message 
+catch(PDOException $e) {
+    die("Could not hack the planet {$db} :" . $e->getMessage());
 }
