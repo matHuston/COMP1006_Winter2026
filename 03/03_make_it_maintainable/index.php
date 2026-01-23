@@ -1,9 +1,9 @@
 <?php
 // required to correctly start display of page due to starting <html>
-require 'header.php';
+require 'includes/header.php';
 // require_once to avoid multiple connections
-require_once 'connect.php';
+require_once 'includes/connect.php';
 // include list.php so that the page still functions if file not found
-include 'list.php';
+include 'includes/list.php';
 // required to correctly end display of page due to ending header.php <html>
-require 'footer.php';
+require 'includes/footer.php';
