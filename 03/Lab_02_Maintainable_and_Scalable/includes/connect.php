@@ -16,8 +16,8 @@ try {
     $pdo = new PDO($dsn, $user, $password);
     // set error mode to exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "🍓Connection successful!";
+    echo "🍓 Connection successful!";
 } catch (PDOException $e) {
-    echo "💀Connection failed: " . $e->getMessage();
+    echo "💀 Connection failed: " . $e->getMessage();
 }
 // end try and catch
