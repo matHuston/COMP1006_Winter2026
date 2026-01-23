@@ -7,7 +7,7 @@ $host = "localhost"; // needed ;
 $dbname = "week_two";
 $username = "root";
 $password = "";
-$dsn = "mysql:host=$hostdbname=$dbname"; //needed ;
+$dsn = "mysql:host=$host; dbname=$dbname"; //needed ;
 
 try {
     $pdo = new PDO($dsn, $username, $password); // needed $password
