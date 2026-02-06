@@ -35,6 +35,19 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+@font-face {
+    font-family: "Herculanum LT W01 Roman";
+    src: url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.eot");
+    src: url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.svg#Herculanum LT W01 Roman")format("svg");
+}
+@font-face {
+    font-family: AvatarLogo;
+    src: url(Avatar\ Airbender.ttf) format("truetype");
+}
 
 /* ============================
    Layout
@@ -46,7 +59,7 @@ footer {
     max-width: 80%;
     margin: 2rem auto;
     padding: 1.5rem;
-    font-family: "Macondo", cursive;
+    font-family: "Herculanum LT W01 Roman", cursive;
 }
 
 /* ============================
@@ -56,11 +69,16 @@ footer {
 h1 {
     text-align: center;
     margin-bottom: 1.5rem;
+    font-family: AvatarLogo, cursive;
 }
 
 h1 img {
     max-width: 220px;
     height: auto;
+}
+
+h2 {
+    font-family: AvatarLogo, cursive;
 }
 
 /* ============================

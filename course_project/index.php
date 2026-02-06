@@ -1,4 +1,5 @@
 <?php require "includes/header.php" ?>
+
 <main>
   <h2> Pro-Bender Management System</h2>
   <h6 class="mb-4">Brought to you by Varrick Global Industries</h6>

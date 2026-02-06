@@ -18,6 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <!-- onlinewebfonts.com -->
+    <link href="https://db.onlinewebfonts.com/c/53c7fe3ce67d33e8535956ba4edd38c3?family=Herculanum+LT+W01+Roman" rel="stylesheet">
 </head>
 
 <body>
