@@ -1,13 +1,15 @@
 <?php
-
-require "includes/connect.php";  
+//make sure we have a connection to the database
+require "includes/connect.php";
 
 /*1*/
+// Check that the request method is POST so that we only process form submissions and not direct accesses
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Invalid request');
 }
 
 /*2*/
+// sanitize and trim the input data, trim deletes whitespace from beginning and end of string, filter_sanitize_special_chars escapes any special characters that could be used for XSS attacks
 $firstName = trim(filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS));
 $lastName  = trim(filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS));
 $email     = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -16,7 +18,7 @@ $address   = trim(filter_input(INPUT_POST, 'address', FILTER_SANITIZE_SPECIAL_CH
 $comments  = trim(filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_SPECIAL_CHARS));
 
 /*3*/
-
+// Validate the input data and collect any errors into an array
 $errors = [];
 
 // Required fields
@@ -40,6 +42,7 @@ if ($phone === null || $phone === '') {
     $errors[] = "Phone number is required.";
 } elseif (!filter_var($phone, FILTER_VALIDATE_REGEXP, [
     'options' => ['regexp' => '/^[0-9\-\+\(\)\s]{7,25}$/']
+    // simple regex to allow digits, spaces, parentheses, plus and hyphens
 ])) {
     $errors[] = "Phone number format is invalid.";
 }
@@ -50,8 +53,8 @@ if ($address === null || $address === '') {
 }
 
 // If there are errors, show them and stop the script before inserting to the DB
-if (!empty($errors)) {
-    require "includes/header.php";   
+if (!empty($errors)) { // if errors array is not empty
+    require "includes/header.php";
     echo "<div class='alert alert-danger'>";
     echo "<h2>Please fix the following:</h2>";
     echo "<ul>";
@@ -63,14 +66,32 @@ if (!empty($errors)) {
     echo "</div>";
 
     require "includes/footer.php";
-    exit;
+    exit; // stop script execution if theres errors
 }
 
 /*4*/
+// build the sql query to insert the order into the database using named placeholders (e.g. :first_name) to safely insert user data without risking SQL injection
+$sql = "INSERT INTO orders (first_name, last_name, email, phone, address, comments) 
+            VALUES (:first_name, :last_name, :email, :phone, :address, :comments)"; // placeholders for prepared statement
 
+// prepare the query
+$stmt = $pdo->prepare($sql);
+
+// match the named placeholders to the user data/actual data, param is the placeholder name, var is the value we want to insert into the database,in this case the sanitized and validated user input from the form above
+$stmt->bindParam(":first_name", $firstName);
+$stmt->bindParam(":last_name", $lastName);
+$stmt->bindParam(":email", $email);
+$stmt->bindParam(":phone", $phone);
+$stmt->bindParam(":address", $address);
+$stmt->bindParam(":comments", $comments);
+
+// execute the query/prepared statement
+$stmt->execute();
+// closing the connection is optional, but good practice
+$pdo = null;
 
 ?>
-<? require "includes/header.php"; ?> 
+<? require "includes/header.php"; ?>
 <div class="alert alert-success">
     <h1>Thank you for your order, <?= htmlspecialchars($firstName) ?>!</h1>
     <p>
