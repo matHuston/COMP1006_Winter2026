@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // sanitize and trim input data, trim deletes whitespace from beginning and end of string, filter_sanitize_special_chars escapes any special characters that could be used for attacks
 $firstName = trim(filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS));
-$lastName  = trim(filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS));
-$benderElement  = trim(filter_input(INPUT_POST, 'bender_element', FILTER_SANITIZE_SPECIAL_CHARS));
-$teamName  = trim(filter_input(INPUT_POST, 'team_name', FILTER_SANITIZE_SPECIAL_CHARS));
-$phone     = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS));
-$email     = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$notes  = trim(filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_SPECIAL_CHARS));
+$lastName = trim(filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS));
+$benderElement = trim(filter_input(INPUT_POST, 'bender_element', FILTER_SANITIZE_SPECIAL_CHARS));
+$teamName = trim(filter_input(INPUT_POST, 'team_name', FILTER_SANITIZE_SPECIAL_CHARS));
+$phone = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS));
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$notes = trim(filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_SPECIAL_CHARS));
 
 // validate input data and collect errors into an array
 $errors = [];
@@ -34,10 +34,12 @@ if ($benderElement === null || $benderElement === '') {
 // telephone with regex format check
 if ($phone === null || $phone === '') {
     $errors[] = "Phone number is required.";
-} elseif (!filter_var($phone, FILTER_VALIDATE_REGEXP, [
-    'options' => ['regexp' => '/^[0-9\-\+\(\)\s]{7,25}$/']
-    // this regex allows digits, spaces, parentheses, plus and hyphens
-])) {
+} elseif (
+    !filter_var($phone, FILTER_VALIDATE_REGEXP, [
+        'options' => ['regexp' => '/^[0-9\-\+\(\)\s]{7,25}$/']
+        // this regex allows digits, spaces, parentheses, plus and hyphens
+    ])
+) {
     $errors[] = "Phone number format is invalid.";
 }
 

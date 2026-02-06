@@ -5,7 +5,7 @@
   <!-- bootstrap - class=mb-4 adds margin-bottom -->
   <form action="process.php" method="post">
 
-  <!-- 
+    <!-- 
   REQUIREMENTS
     1.) using PHP, the ability for users to add, view, delete and update information 
       obtained via an HTML form and store in a MySQL database 
