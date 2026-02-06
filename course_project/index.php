@@ -24,7 +24,7 @@
   Application One : Team Tracker 
   My version of this application is built around Pro-Bending from the Avatar: The Last Airbender universe, because I don't watch sports but I wanted to do something fun. 
   In the Avatar world, lots of people have the ability to manipulate elements, and so naturally a sport was born from this power. Pro-Bending is a 3v3 team-based sport but doesn't have traditional "positions" like other sports, instead each team is comprised of 3 players that can control one of three natural elements; one water-bender, one earth-bender, and one fire-bender. For this reason, my "position" column has been renamed to "bender_element".
-  The Team Tracker application will:
+  The Team Tracker application will:4
     - allow users to manage and keep track of their team members 
     - allow users to add first name, last name, position (bender_element), phone number, email and team name for each team member 
     - view all team member information
@@ -32,6 +32,7 @@
   -->
 
     <fieldset>
+      <!-- "form-label" for labels, "form-control" for inputs, and "form-select" for dropdown select menus -->
       <legend>Bender Information</legend>
       <label for="first_name" class="form-label">First Name</label>
       <input type="text" id="first_name" name="first_name" class="form-control">
@@ -44,11 +45,12 @@
         <option value="earth">Earth</option>
         <option value="fire">Fire</option>
       </select>
+      <label for="team_name" class="form-label">Team Name</label>
+      <input type="text" id="team_name" name="team_name" class="form-control">
       <label for="phone" class="form-label">Telephone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="153-174-9892" class="form-control">
+      <input type="tel" id="phone" name="phone" placeholder="101-170-9892" class="form-control">
       <label for="email" class="form-label">Email</label>
       <input type="text" id="email" name="email" class="form-control">
-      <!-- "form-label" for labels, "form-control" for inputs, and "form-select" for dropdown select menus -->
     </fieldset>
 
     <fieldset>
