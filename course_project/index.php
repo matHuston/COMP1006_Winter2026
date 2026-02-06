@@ -4,18 +4,44 @@
   <!-- bootstrap class=mb-4 adds margin-bottom -->
   <form action="process.php" method="post">
 
-    <!-- Customer Information -->
-    <!-- Step One - Add Client Side Validation with HTML Attributes -->
+  <!-- 
+  REQUIREMENTS
+    1.) using PHP, the ability for users to add, view, delete and update information 
+      obtained via an HTML form and store in a MySQL database 
+    2.) Client-side and server-side form validation (including Google reCAPTCHA) 
+    3.) A simple interface design using Bootstrap 
+  ADDITIONAL REQUIREMENTS 
+    1.) Developer should utilize proper version control process 
+    2.) Web app should be tested, debugged and launched on a production 
+      server 
+    3.) Code must be commented, explaining application logic 
+    4.) A short project review/retrospective should be included documenting 
+      challenges/success/next steps. This can be submitted as a written document or 
+      a video recording. 
+      
+  Application One : Team Tracker 
+  My version of this application is built around Pro-Bending from the Avatar: The Last Airbender universe, because I don't watch sports but I wanted to do something fun. It's a 3v3 team-based sport that takes place in an elevated arena surrounded by a moat that players get knocked off of the platform into. Pro-bending doesn't have traditional "positions" that a sport like volleyball would have, instead each team is comprised of 3 players that can control one of three natural elements; one water-bender, one earth-bender, and one fire-bender. For this reason, my "positions" column has been renamed to "bending_type".
+  The Team Tracker application will:
+    - allow users to manage and keep track of their team members 
+    - allow users to add first name, last name, position (bending_type), phone number, email and team name for each team member 
+    - view all team member information
+    - provide users with the ability to update team member information as well as delete team members
+  -->
+
     <fieldset>
-      <legend>Customer Information</legend>
+      <legend>Bender Information</legend>
       <label for="first_name" class="form-label">First name</label>
       <input type="text" id="first_name" name="first_name" class="form-control">
       <label for="last_name" class="form-label">Last name</label>
       <input type="text" id="last_name" name="last_name" class="form-control">
+      <label for="bending_type" class="form-label">Bending type</label>
+      <select id="bending_type" name="bending_type" class="form-select">
+        <option value="elements">Select Bender Type</option>
+        <option value="water">Water</option>
+        <option value="earth">Earth</option>
+        <option value="fire">Fire</option>
       <label for="phone" class="form-label">Phone number</label>
       <input type="tel" id="phone" name="phone" placeholder="555-123-4567" class="form-control">
-      <label for="address" class="form-label">Address</label>
-      <input type="text" id="address" name="address" class="form-control">
       <label for="email" class="form-label">Email</label>
       <input type="text" id="email" name="email" class="form-control">
       <!-- class="form-label" for labels and class="form-control" for inputs -->
