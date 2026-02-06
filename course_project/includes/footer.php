@@ -1,4 +1,4 @@
 <footer>
-    <p> Bake It Til You Make It - COMP1006 </p>
-    <p> Week 4 - Form Validation</p>
-  </footer>
+    <p> Pro-Bending Management - COMP1006 Course Project </p>
+    <p> Created by matHuston</p>
+</footer>
