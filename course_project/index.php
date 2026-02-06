@@ -32,9 +32,9 @@
 
     <fieldset>
       <legend>Bender Information</legend>
-      <label for="first_name" class="form-label">First name</label>
+      <label for="first_name" class="form-label">First Name</label>
       <input type="text" id="first_name" name="first_name" class="form-control">
-      <label for="last_name" class="form-label">Last name</label>
+      <label for="last_name" class="form-label">Last Name</label>
       <input type="text" id="last_name" name="last_name" class="form-control">
       <label for="bender_element" class="form-label">Bender Element</label>
       <select id="bender_element" name="bender_element" class="form-select">
