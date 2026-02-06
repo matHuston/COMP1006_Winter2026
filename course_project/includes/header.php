@@ -20,11 +20,11 @@
 <body>
     <header>
         <h1 class="site-title">
-            <img src="assets/Pro-bending_logo.webp" alt="Pro-Bending Association" class="logo">
+            <img src="assets/Pro-bending_logo.jpg" alt="Pro-Bending Association" class="logo">
         </h1>
         <nav>
             <a href="/"> XAMPP Dashboard </a>
             <a href="#"> Player Managment </a>
-            <a href="#"> Contact </a>
+            <a href="#"> Team List </a>
         </nav>
     </header>
