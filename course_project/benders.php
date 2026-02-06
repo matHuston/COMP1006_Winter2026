@@ -5,10 +5,10 @@ require "includes/connect.php";
 ?>
 
 <main class="container mt-4">
-  <h2>Orders</h2>
+  <h2>Benders</h2>
 
-  <?php if (count($orders) === 0): ?>
-    <p>No orders yet.</p>
+  <?php if (count($benders) === 0): ?>
+    <p>No benders yet.</p>
   <?php else: ?>
     <ul>
 
@@ -17,7 +17,7 @@ require "includes/connect.php";
   <?php endif; ?>
 
   <p class="mt-3">
-    <a href="index.php">Back to Order Form</a>
+    <a href="index.php">Back to Player Information Form</a>
   </p>
 </main>
 
