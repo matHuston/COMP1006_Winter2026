@@ -24,7 +24,7 @@
   Application One : Team Tracker 
   My version of this application is built around Pro-Bending from the Avatar: The Last Airbender universe, because I don't watch sports but I wanted to do something fun. 
   In the Avatar world, lots of people have the ability to manipulate elements, and so naturally a sport was born from this power. Pro-Bending is a 3v3 team-based sport but doesn't have traditional "positions" like other sports, instead each team is comprised of 3 players that can control one of three natural elements; one water-bender, one earth-bender, and one fire-bender. For this reason, my "position" column has been renamed to "bender_element".
-  The Team Tracker application will:4
+  The Team Tracker application will:
     - allow users to manage and keep track of their team members 
     - allow users to add first name, last name, position (bender_element), phone number, email and team name for each team member 
     - view all team member information
