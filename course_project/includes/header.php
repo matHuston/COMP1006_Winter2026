@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+    <link href="styles/normalize.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
     <link rel="favicon" href="assets/favicon.webp">
     <!-- google fonts -->
@@ -27,13 +28,12 @@
         <h1 class="site-title">
             <img src="assets/Pro-bending_logo.jpg" alt="Pro-Bending Association" class="logo">
         </h1>
-        <nav>
-            <a href="/"> XAMPP Dashboard </a>
-            <p> | </p>
-            <a href="index.php"> Bender Form </a>
-            <p> | </p>
-            <a href="benders.php"> Team List </a>
-            <p> | </p>
-            <a href="updateBender.php"> Update Bender </a>
+        <nav class="crumbs" >
+            <ul>
+                <a class="crumb" href="/"> XAMPP </a>
+                <a class="crumb" href="index.php"> Bender Form </a>
+                <a class="crumb" href="benders.php"> Team List </a>
+                <a class="crumb" href="updateBender.php"> Update Bender </a>
+            </ul>
         </nav>
     </header>
