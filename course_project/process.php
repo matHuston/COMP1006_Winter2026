@@ -19,20 +19,20 @@ $notes = trim(filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_SPECIAL_CHARS));
 $errors = [];
 
 // required fields
-if ($firstName === null || $firstName === '') {
+if ($firstName === null || $firstName === '' || empty($firstName)) {
     $errors[] = "First Name is required.";
 }
 
-if ($lastName === null || $lastName === '') {
+if ($lastName === null || $lastName === '' || empty($lastName)) {
     $errors[] = "Last Name is required.";
 }
 
-if ($benderElement === null || $benderElement === '') {
+if ($benderElement === null || $benderElement === '' || empty($benderElement)) {
     $errors[] = "Must choose player's element.";
 }
 
 // telephone with regex format check
-if ($phone === null || $phone === '') {
+if ($phone === null || $phone === '' || empty($phone)) {
     $errors[] = "Phone number is required.";
 } elseif (
     !filter_var($phone, FILTER_VALIDATE_REGEXP, [
@@ -44,7 +44,7 @@ if ($phone === null || $phone === '') {
 }
 
 // email with format check
-if ($email === null || $email === '') {
+if ($email === null || $email === '' || empty($email)) {
     $errors[] = "Email is required.";
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Email must be a valid email address.";
