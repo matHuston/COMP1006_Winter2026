@@ -30,7 +30,7 @@
         </h1>
         <nav class="crumbs" >
             <ul>
-                <a class="crumb" href="/"> XAMPP </a>
+                <!-- <a class="crumb" href="/"> XAMPP </a> -->
                 <a class="crumb" href="index.php"> Bender Form </a>
                 <a class="crumb" href="benders.php"> Team List </a>
                 <a class="crumb" href="updateBender.php"> Update Bender </a>
