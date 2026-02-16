@@ -34,6 +34,7 @@
                 <a class="crumb" href="index.php"> Bender Form </a>
                 <a class="crumb" href="benders.php"> Team List </a>
                 <a class="crumb" href="updateBender.php"> Update Bender </a>
+                <a class="crumb" href="deleteBender.php"> Delete Bender </a>
             </ul>
         </nav>
     </header>
