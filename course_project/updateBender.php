@@ -9,7 +9,7 @@
 require "includes/header.php";
 require "includes/connect.php";
 
-//    require ID in URL, ex. update.php?id=1
+// require ID in URL, ex. update.php?id=1
 if (!isset($_GET['id'])) {
   die("No Bender ID provided.");
 }
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 phone = :phone,
                 email = :email,
                 notes = :notes
-            WHERE bender_id = :bender_id";
+            WHERE id = :id";
 
     $stmt = $pdo->prepare($sql);
 
@@ -102,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":phone", $phone);
     $stmt->bindParam(":notes", $notes);
+    $stmt->bindParam(':id', $benderId);
 
     $stmt->execute();
 
@@ -159,14 +160,14 @@ if (!$player) {
     >
 
     <!-- element drop down menu -->
-    <label for="bender_element" class="form-label">Bender Element</label>
+    <label for="bender_element" class="form-label">Current Element: <?= htmlspecialchars($player['bender_element']); ?></label>
     <select 
     id="bender_element" 
     name="bender_element" 
     class="form-select mb-3"
     required
     >
-    <option value="elements">Select an Element</option>
+    <option value="elements">Select new Element</option>
     <option value="water">Water</option>
     <option value="earth">Earth</option>
     <option value="fire">Fire</option>
@@ -199,6 +200,21 @@ if (!$player) {
     value="<?= htmlspecialchars($player['email']); ?>"
     required
     >
+
+    <fieldset>
+      <legend>Player Notes</legend>
+      <p>
+        <label for="notes" class="form-label">(optional)</label><br>
+        <textarea 
+        id="notes" 
+        name="notes" 
+        rows="4" 
+        class="form-control"
+        >
+        <?= htmlspecialchars($player['notes']); ?>
+        </textarea>
+      </p>
+    </fieldset>
 
     <button class="btn btn-primary">Save Changes</button>
     <a href="orders.php" class="btn btn-secondary">Cancel</a>
