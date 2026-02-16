@@ -124,6 +124,10 @@ textarea {
     resize: vertical;
 }
 
+div > h1 p {
+    text-align: center;
+}
+
 /* ============================
    Navigation
    ============================ */

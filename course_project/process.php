@@ -1,4 +1,5 @@
 <?php
+require "includes/header.php";
 require "includes/connect.php";
 
 // check that request method is POST so that we only process form submissions
@@ -90,12 +91,13 @@ $stmt->execute();
 $pdo = null;
 
 ?>
-<? require "includes/header.php"; ?>
+
 <div class="alert alert-success">
     <h1>Player <?= htmlspecialchars($firstName) ?> <?= htmlspecialchars($lastName) ?> added successfully!</h1>
-    <p>
-        Contact information for <?= htmlspecialchars($firstName) ?>:
-        <strong><?= htmlspecialchars($email) ?>, or <?= htmlspecialchars($phone) ?></strong>.
+    <p>Contact information for <?= htmlspecialchars($firstName) ?>:
+        <strong>
+            <?= htmlspecialchars($email) ?>, or <?= htmlspecialchars($phone) ?>
+        </strong>.
     </p>
 </div>
 
