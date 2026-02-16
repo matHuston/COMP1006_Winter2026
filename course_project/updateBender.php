@@ -113,9 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /* -------------------------------------------
    STEP 3: Load existing order data (to echo in the form)
 -------------------------------------------- */
-$sql = "SELECT * FROM pro_bending WHERE bender_id = :bender_id";
+$sql = "SELECT * FROM benders WHERE id = :id";
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':bender_id', $benderId);
+$stmt->bindParam(':id', $benderId);
 $stmt->execute();
 
 $player = $stmt->fetch();
@@ -125,7 +125,7 @@ if (!$player) {
 ?>
 
 <main class="container mt-4">
-  <h2>Update Bender #<?= htmlspecialchars($player['bender_id']); ?></h2>
+  <h2>Update Bender #<?= htmlspecialchars($player['id']); ?></h2>
 
   <?php if (!empty($error)): ?>
     <p class="text-danger"><?= htmlspecialchars($error); ?></p>
@@ -164,7 +164,6 @@ if (!$player) {
     id="bender_element" 
     name="bender_element" 
     class="form-select mb-3"
-    value="<?= htmlspecialchars($player['bender_element']); ?>"
     required
     >
     <option value="elements">Select an Element</option>
@@ -192,7 +191,7 @@ if (!$player) {
     value="<?= htmlspecialchars($player['phone']); ?>"
     >
 
-    <label class="form-label">Email</label>
+    <label class="form-label">Hawkmail</label>
     <input
     type="email"
     name="email"
