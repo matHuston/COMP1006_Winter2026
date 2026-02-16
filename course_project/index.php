@@ -88,7 +88,7 @@
       placeholder="101-170-9892" 
       class="form-control mb-3"
       >
-      <label for="email" class="form-label">Email</label>
+      <label for="email" class="form-label">Hawkmail</label>
       <input 
       type="text" 
       id="email" 
