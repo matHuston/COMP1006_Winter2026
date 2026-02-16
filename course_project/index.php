@@ -93,7 +93,7 @@
       type="text" 
       id="email" 
       name="email" 
-      class="form-control mb-3"
+      class="form-control mb-4"
       required
       >
     </fieldset>
