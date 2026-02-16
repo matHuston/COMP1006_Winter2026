@@ -1,7 +1,6 @@
 <?php
 //TODO:
 require "includes/connect.php";
-
 /*
   TODO:
   1. Write a SELECT query to get all subscribers
@@ -13,18 +12,14 @@ require "includes/connect.php";
 
 $sql = "SELECT * FROM subscribers ORDER BY subscribed_at DESC";
 $stmt = $pdo->prepare($sql);
+
 $stmt->execute();
-$subscribers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 $subscribers = []; // placeholder
-
-foreach ($subscribers as $subscriber) {
-  $subscribers[$subscriber["id"]] = $subscriber;
-}
+$subscribers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!-- end ?php -->
- 
+
 <main class="container mt-4">
   <h1>Subscribers</h1>
 
@@ -60,5 +55,3 @@ foreach ($subscribers as $subscriber) {
     <a href="index.php">Back to Subscribe Form</a>
   </p>
 </main>
-
-<?php require "includes/footer.php"; ?>

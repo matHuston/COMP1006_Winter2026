@@ -1,5 +1,5 @@
 <?php
-require "includes/header.php";
+
 //  TODO: connect to the database 
 require "includes/connect.php";
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
