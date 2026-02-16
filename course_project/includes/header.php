@@ -29,7 +29,11 @@
         </h1>
         <nav>
             <a href="/"> XAMPP Dashboard </a>
-            <a href="index.php"> Add a Bender </a>
+            <p> | </p>
+            <a href="index.php"> Bender Form </a>
+            <p> | </p>
             <a href="benders.php"> Team List </a>
+            <p> | </p>
+            <a href="updateBender.php"> Update Bender </a>
         </nav>
     </header>
