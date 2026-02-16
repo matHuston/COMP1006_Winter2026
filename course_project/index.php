@@ -34,31 +34,81 @@
     <fieldset>
       <!-- "form-label" for labels, "form-control" for inputs, and "form-select" for dropdown select menus -->
       <legend>Bender Information</legend>
+
+      <!-- first name -->
       <label for="first_name" class="form-label">First Name</label>
-      <input type="text" id="first_name" name="first_name" class="form-control">
+      <input 
+      type="text" 
+      id="first_name" 
+      name="first_name" 
+      class="form-control mb-3"
+      required
+      >
+
+      <!-- last name -->
       <label for="last_name" class="form-label">Last Name</label>
-      <input type="text" id="last_name" name="last_name" class="form-control">
+      <input 
+      type="text" 
+      id="last_name" 
+      name="last_name" 
+      class="form-control mb-3"
+      required
+      >
+
+      <!-- element drop down menu -->
       <label for="bender_element" class="form-label">Bender Element</label>
-      <select id="bender_element" name="bender_element" class="form-select">
+      <select 
+      id="bender_element" 
+      name="bender_element" 
+      class="form-select mb-3"
+      required
+      >
         <option value="elements">Select an Element</option>
         <option value="water">Water</option>
         <option value="earth">Earth</option>
         <option value="fire">Fire</option>
       </select>
+
+      <!-- team name -->
       <label for="team_name" class="form-label">Team Name</label>
-      <input type="text" id="team_name" name="team_name" class="form-control">
+      <input 
+      type="text" 
+      id="team_name" 
+      name="team_name" 
+      class="form-control mb-3"
+      required
+      >
+
+      <!-- contact info -->
       <label for="phone" class="form-label">Telephone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="101-170-9892" class="form-control">
+      <input 
+      type="tel" 
+      id="phone" 
+      name="phone" 
+      placeholder="101-170-9892" 
+      class="form-control mb-3"
+      >
       <label for="email" class="form-label">Email</label>
-      <input type="text" id="email" name="email" class="form-control">
+      <input 
+      type="text" 
+      id="email" 
+      name="email" 
+      class="form-control mb-3"
+      required
+      >
     </fieldset>
 
     <fieldset>
       <legend>Player Notes</legend>
       <p>
         <label for="notes" class="form-label">(optional)</label><br>
-        <textarea id="notes" name="notes" rows="4" class="form-control"
-          placeholder="Strengths, weaknesses, temperment, etc..."></textarea>
+        <textarea 
+        id="notes" 
+        name="notes" 
+        rows="4" 
+        class="form-control"
+        placeholder="Strengths, weaknesses, temperment, etc...">
+        </textarea>
       </p>
     </fieldset>
 
