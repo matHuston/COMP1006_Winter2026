@@ -10,9 +10,14 @@
  *  5) Displays either errors or a confirmation message
  */
 
+<<<<<<< HEAD
 // Layout + DB connection
 require "includes/connect.php";  // should create a PDO instance, e.g., $pdo
 
+=======
+// DB Connection 
+require "includes/connect.php"; 
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
 // --------------------------------------------------
 // 1. Check form submission
 // --------------------------------------------------
@@ -34,8 +39,12 @@ $phone     = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHAR
 $address   = trim(filter_input(INPUT_POST, 'address', FILTER_SANITIZE_SPECIAL_CHARS));
 $comments  = trim(filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_SPECIAL_CHARS));
 
+<<<<<<< HEAD
 // Item quantities come in as an array only if your form uses names like:
 // name="items[chaos_croissant]" etc.
+=======
+//array of product items 
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
 $items = $_POST['items'] ?? [];
 
 // --------------------------------------------------
@@ -91,7 +100,11 @@ if (count($itemsOrdered) === 0) {
 
 // If there are errors, show them and stop the script before inserting to the DB
 if (!empty($errors)) {
+<<<<<<< HEAD
     require "includes/header.php";   // typically outputs DOCTYPE/head/nav/opening body tags
+=======
+    require "includes/header.php"; 
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
     echo "<div class='alert alert-danger'>";
     echo "<h2>Please fix the following:</h2>";
     echo "<ul>";
@@ -107,6 +120,7 @@ if (!empty($errors)) {
 }
 
 // --------------------------------------------------
+<<<<<<< HEAD
 // 4. Prepare SQL
 // --------------------------------------------------
 // NOTE: We insert ALL item columns every time.
@@ -142,6 +156,21 @@ $stmt = $pdo->prepare($sql);
 // --------------------------------------------------
 /**
  * Important teaching point:
+=======
+// 4. Set Up Query & Prepare
+// --------------------------------------------------
+// NOTE: We insert ALL item columns every time.
+// If an item was not ordered, we store 0 for that column.
+
+$sql = "INSERT INTO orders1 (first_name, last_name, phone, address, email, chaos_croissant, existential_eclair,procrastination_cookie, comments) VALUES (:first_name, :last_name, :phone, :address, :email, :chaos_croissant, :existential_eclair,:procrastination_cookie, :comments)"; 
+
+$stmt = $pdo->prepare($sql); 
+
+// --------------------------------------------------
+// 5. Bind parameters
+// --------------------------------------------------
+/*
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
  * - bindParam() binds variables by reference (value is read at execute time)
  * - binding array elements directly with bindParam() can be unreliable
  *   because array offsets aren't always safe references.
@@ -153,8 +182,16 @@ $stmt = $pdo->prepare($sql);
 
 // Build “clean” values for each DB column using defaults.
 // We pull from $itemsOrdered so only validated quantities get used.
+<<<<<<< HEAD
 
 // Customer info (bindParam is fine because these are real variables)
+=======
+$chaosCroissant = $itemsOrdered['chaos_croissant'] ?? 0; 
+$existentialEclair     = $itemsOrdered['existential_eclair'] ?? 0;
+$procrastinationCookie = $itemsOrdered['procrastination_cookie'] ?? 0;
+
+// bind parameters 
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
 $stmt->bindParam(':first_name', $firstName);
 $stmt->bindParam(':last_name', $lastName);
 $stmt->bindParam(':phone', $phone);
@@ -162,6 +199,7 @@ $stmt->bindParam(':address', $address);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':comments', $comments);
 
+<<<<<<< HEAD
 /* how does an array work with bindParam - we need a reference! $stmt->bindParam(':comments', );*/
 
 $chaosCroissant = $itemsOrdered['chaos_croissant']; 
@@ -170,6 +208,9 @@ $procrastinationCookie = $itemsOrdered['procrastination_cookie'] ?? 0;
 
 
 // Order items
+=======
+// order items
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
 // We bind as integers so the DB receives numeric values (0, 1, 2, ...).
 $stmt->bindParam(':chaos_croissant', $chaosCroissant, PDO::PARAM_INT);
 $stmt->bindParam(':existential_eclair', $existentialEclair, PDO::PARAM_INT);
@@ -181,11 +222,22 @@ $stmt->bindParam(':procrastination_cookie', $procrastinationCookie, PDO::PARAM_I
 // --------------------------------------------------
 $stmt->execute();
 
+<<<<<<< HEAD
 // --------------------------------------------------
 // 7. Confirmation output
 // --------------------------------------------------
 // Because header.php/footer.php usually handle the page shell,
 // we only output the content here (no second DOCTYPE/HTML tags).
+=======
+// close the connection 
+
+$pdo = null; 
+
+// --------------------------------------------------
+// 7. Confirmation output
+// --------------------------------------------------
+
+>>>>>>> 2a3f1822ae44ea7e7d8e61fff41c63040b919caf
 ?>
 <? require "includes/header.php"; ?>
 <div class="alert alert-success">
