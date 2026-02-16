@@ -3,14 +3,14 @@
    ============================ */
 
 /* Box sizing reset */
-/* *,
+*,
 *::before,
 *::after {
     box-sizing: border-box;
-} */
+}
 
 /* Remove default margins */
-/* body,
+body,
 h1,
 h2,
 h3,
@@ -18,56 +18,58 @@ p,
 fieldset,
 legend {
     margin: 0;
-} */
+}
 
 /* Base body styles */
-/* body {
+body {
     line-height: 1.5;
     color: #222;
     background-color: #fafafa;
-} */
+}
 
 /* ============================
    Fonts
    ============================ */
-/* .macondo-regular {
+.macondo-regular {
     font-family: "Macondo", cursive;
     font-weight: 400;
     font-style: normal;
-} */
+}
+
 /* font found at https://www.onlinewebfonts.com/download/53c7fe3ce67d33e8535956ba4edd38c3 */
-/* @font-face {
+@font-face {
     font-family: "Herculanum LT W01 Roman";
     src: url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.eot");
     src: url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.svg#Herculanum LT W01 Roman")format("svg");
+        url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.svg#Herculanum LT W01 Roman")format("svg");
 }
+
 @font-face {
     font-family: AvatarLogo;
     src: url(Avatar\ Airbender.ttf) format("truetype");
-} */
+}
 
 /* ============================
    Layout
    ============================ */
 
-/* main,
-/* header nav, */
+main,
+header nav,
 footer {
     max-width: 80%;
     margin: 2rem auto;
     padding: 1.5rem;
-    /* font-family: "Herculanum LT W01 Roman", cursive; */
-} */
+    font-family: "Herculanum LT W01 Roman", cursive;
+}
 
 /* ============================
    Logo / Heading
    ============================ */
 
-/* h1 {
+h1 {
     text-align: center;
     margin-bottom: 1.5rem;
     font-family: AvatarLogo, cursive;
@@ -80,85 +82,83 @@ h1 img {
 
 h2 {
     font-family: AvatarLogo, cursive;
-} */
+}
 
 /* ============================
    Form Elements
    ============================ */
 
-/* fieldset {
+fieldset {
     border: 1px solid #ddd;
     padding: 1rem;
     margin-bottom: 1.5rem;
-} */
+}
 
-/* legend {
+legend {
     padding: 0 0.5rem;
     font-weight: 600;
-} */
+}
 
-/* label {
+label {
     font-weight: 500;
-} */
+}
 
-/* input,
+input,
 select,
 textarea,
 button {
     display: block;
     font-family: inherit;
     font-size: 1rem;
-} */
+}
 
-/* input,
+input,
 select,
 textarea {
     width: 100%;
     padding: 0.4rem;
     margin-top: 0.25rem;
-} */
+}
 
-/* textarea {
+textarea {
     resize: vertical;
-} */
+}
 
 /* ============================
    Navigation
    ============================ */
 
- /
+nav {
+    margin-bottom: 1.5rem;
+    background-color: #333;
+}
 
-/* nav > ul {
+nav>ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     gap: 1.25rem;
     justify-content: center;
-} */
+}
 
-/* nav a {
+nav a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
     padding: 0.25rem 0;
-} */
+}
 
-/* nav a:hover,
+nav a:hover,
 nav a:focus {
     text-decoration: underline;
-}  */
-
- /* nav a {
-    display: inline-block;
-    color: whitesmoke;
-} */
+}
 
 /* ============================
   Footer
    ============================ */
 
-/* footer {
+footer {
     background-color: #000;
     color: #FFF;
-} */
+}
