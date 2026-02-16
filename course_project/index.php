@@ -102,13 +102,7 @@
       <legend>Player Notes</legend>
       <p>
         <label for="notes" class="form-label">(optional)</label><br>
-        <textarea 
-        id="notes" 
-        name="notes" 
-        rows="4" 
-        class="form-control"
-        placeholder="Strengths, weaknesses, temperment, etc...">
-        </textarea>
+        <textarea id="notes" name="notes" rows="4" class="form-control" placeholder="Strengths, weaknesses, temperment, etc..."></textarea>
       </p>
     </fieldset>
 
