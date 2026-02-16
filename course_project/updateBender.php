@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Email must be a valid email address.";
     }
 
-    // if any errors, show them and stop the script before inserting to the DB
+    // if any errors, show them and stop the script before updating the DB
     if (!empty($errors)) { // if errors array is not empty
         require "includes/header.php";
         echo "<div class='alert alert-danger'>";
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 /* -------------------------------------------
-   STEP 3: Load existing order data (to echo in the form)
+   Load existing player data (to echo in the form)
 -------------------------------------------- */
 $sql = "SELECT * FROM benders WHERE id = :id";
 $stmt = $pdo->prepare($sql);
