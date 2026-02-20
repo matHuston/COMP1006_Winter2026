@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Invalid request');
 }
 
-// sanitize and trim input data, trim deletes whitespace from beginning and end of string, filter_sanitize_special_chars escapes any special characters that could be used for attacks
+// sanitize and trim input data, trim deletes whitespace from beginning and end of string, filter_sanitize escapes any special characters that could be used for attacks
 $firstName = trim(filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS));
 $lastName = trim(filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS));
 $benderElement = trim(filter_input(INPUT_POST, 'bender_element', FILTER_SANITIZE_SPECIAL_CHARS));
@@ -34,21 +34,21 @@ if ($benderElement === null || $benderElement === '' || empty($benderElement)) {
 
 // telephone with regex format check
 if ($phone === null || $phone === '' || empty($phone)) {
-    $errors[] = "Phone number is required.";
+    $errors[] = "Telephone number is required.";
 } elseif (
     !filter_var($phone, FILTER_VALIDATE_REGEXP, [
         'options' => ['regexp' => '/^[0-9\-\+\(\)\s]{7,25}$/']
         // this regex allows digits, spaces, parentheses, plus and hyphens
     ])
 ) {
-    $errors[] = "Phone number format is invalid.";
+    $errors[] = "Telephone number format is invalid.";
 }
 
 // email with format check
 if ($email === null || $email === '' || empty($email)) {
-    $errors[] = "Email is required.";
+    $errors[] = "Hawkmail is required.";
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Email must be a valid email address.";
+    $errors[] = "Hawkmail must be a valid email address.";
 }
 
 
@@ -76,7 +76,7 @@ $sql = "INSERT INTO benders (first_name, last_name, team_name, email, phone, ben
 // prepare the query
 $stmt = $pdo->prepare($sql);
 
-// match named placeholders to user data/actual data, param is the placeholder name, var is the value we want to insert into the database, in this case the sanitized and validated user input from the player information form 
+// match named placeholders to user data/actual data, param is the placeholder name, var is the value we want to insert
 $stmt->bindParam(":first_name", $firstName);
 $stmt->bindParam(":last_name", $lastName);
 $stmt->bindParam(":bender_element", $benderElement);

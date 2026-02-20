@@ -15,33 +15,28 @@ if (!isset($_GET['id'])) {
 $benderId = $_GET['id']; 
 
 // If form is submitted, DELETE the row
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // create the query 
     $sql = "DELETE from benders WHERE id = :id"; 
 
     // prepare 
     $stmt = $pdo->prepare($sql); 
-
     // bind 
     $stmt->bindParam(':id', $benderId);
-
-    // execute
     $stmt->execute(); 
 
-     // Redirect back to team list (prevents resubmission on refresh)
+     // redirect back to team list
     header("Location: benders.php"); 
     exit; 
 }
 
-/* -------------------------------------------
-   Load existing player data (to echo)
--------------------------------------------- */
+/* Load existing player */
 $sql = "SELECT * FROM benders WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':id', $benderId);
 $stmt->execute();
 
+// fetch player data with die if not found
 $player = $stmt->fetch();
 if (!$player) {
   die("Chosen Bender not found.");
@@ -71,6 +66,7 @@ if (!$player) {
         <p>They will be permanently removed from the database.</p>
         <p>Continue?</p>
         <br>
+        <!-- bootstrap red danger button -->
          <button class="btn btn-danger">Delete Bender</button>
             <a href="benders.php" class="btn btn-secondary">Cancel</a>
     </form>

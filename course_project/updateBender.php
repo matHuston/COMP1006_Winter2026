@@ -17,8 +17,7 @@ if (!isset($_GET['id'])) {
 // grab primary key ID from URL
 $benderId = $_GET['id'];
 
-   // If form is submitted, UPDATE the row
-
+// If form is submitted, update row
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // sanitize and trim input data
     $firstName = trim(filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS));
@@ -34,15 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // required fields
     if ($firstName === null || $firstName === '' || empty($firstName)) {
-        $errors[] = "First Name is required.";
+        $errors[] = "First name is required.";
     }
 
     if ($lastName === null || $lastName === '' || empty($lastName)) {
-        $errors[] = "Last Name is required.";
+        $errors[] = "Last name is required.";
     }
 
     if ($benderElement === null || $benderElement === '' || empty($benderElement)) {
-        $errors[] = "Must choose player's element.";
+        $errors[] = "Must choose the player's element.";
     }
 
     // telephone with regex format check
@@ -54,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // this regex allows digits, spaces, parentheses, plus and hyphens
         ])
     ) {
-        $errors[] = "Phone number format is invalid.";
+        $errors[] = "Telephone number format is invalid.";
     }
 
     // email with format check
     if ($email === null || $email === '' || empty($email)) {
-        $errors[] = "Email is required.";
+        $errors[] = "Hawkmail is required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Email must be a valid email address.";
+        $errors[] = "Hawkmail must be a valid hawkmail address.";
     }
 
     // if any errors, show them and stop the script before updating the DB
@@ -81,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit; // stop script execution if any errors
     }
 
+    // SQL update statement with placeholders
     $sql = "UPDATE benders
             SET first_name = :first_name,
                 last_name = :last_name,
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $pdo->prepare($sql);
 
-    // match named placeholders to user data/actual data, param is the placeholder name, var is the value we want to insert into the database, in this case the sanitized and validated user input from the player information form 
+    // match named placeholders to user data/actual data, param is the placeholder name, var is the value we want to insert
     $stmt->bindParam(":first_name", $firstName);
     $stmt->bindParam(":last_name", $lastName);
     $stmt->bindParam(":bender_element", $benderElement);
@@ -106,14 +106,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->execute();
 
-    // Redirect back to team list (prevents resubmission on refresh)
+    // redirect back to team list
     header("Location: benders.php");
     exit;
 }
 
-/* -------------------------------------------
-   Load existing player data (to echo in the form)
--------------------------------------------- */
+/* Load existing player data to be echoed in the form */
 $sql = "SELECT * FROM benders WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':id', $benderId);
@@ -141,6 +139,7 @@ if (!$player) {
 
     <h4 class="mt-3">Bender Info</h4>
 
+    <!-- first name -->
     <label class="form-label">First Name</label>
     <input
     type="text"
@@ -150,6 +149,7 @@ if (!$player) {
     required
     >
 
+    <!-- last name -->
     <label class="form-label">Last Name</label>
     <input
     type="text"
@@ -184,6 +184,7 @@ if (!$player) {
     required
     >
 
+    <!-- telephone number -->
     <label class="form-label">Telephone Number</label>
     <input
     type="text"
@@ -192,6 +193,7 @@ if (!$player) {
     value="<?= htmlspecialchars($player['phone']); ?>"
     >
 
+    <!-- hawkmail address -->
     <label class="form-label">Hawkmail</label>
     <input
     type="email"
@@ -201,6 +203,7 @@ if (!$player) {
     required
     >
 
+    <!-- player notes field -->
     <fieldset>
       <legend>Player Notes</legend>
       <p>

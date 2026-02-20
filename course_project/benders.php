@@ -2,12 +2,13 @@
 require "includes/header.php";
 require "includes/connect.php";
 
-
+// query to get all benders, ordered by team name alphabetically
 $sql = "SELECT * FROM benders ORDER BY team_name ASC";
 $stmt = $pdo->prepare($sql);
 
 $stmt->execute();
 $benders = []; // placeholder
+// fetch players and put them into the $benders array, if not it will stay empty showing the "no benders yet" message
 $benders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -18,6 +19,7 @@ $benders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <?php if (count($benders) === 0): ?>
     <p>No benders yet.</p>
+    <!-- view teams table -->
   <?php else: ?>
     <table class="table table-bordered mt-3">
       <thead>
@@ -33,7 +35,7 @@ $benders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tr>
       </thead>
       <tbody>
-        <!-- loop through $benders, output rows -->
+        <!-- loop through $benders, output rows in the table -->
         <?php foreach ($benders as $bender): ?>
           <tr>
             <td><?= htmlspecialchars($bender['id']) ?></td>
